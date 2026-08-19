@@ -2,7 +2,7 @@
   "name": "Taskheer Agency Estimator",
   "short_name": "Taskheer",
   "description": "Build your custom service estimate and send it straight to Taskheer Agency.",
-  "start_url": "./Taskheer_Agency_Estimator.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
