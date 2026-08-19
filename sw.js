@@ -1,6 +1,6 @@
 const CACHE_NAME = "taskheer-estimator-v1";
 const ASSETS = [
-  "./Taskheer_Agency_Estimator.html",
+  "./index.html",
   "./manifest.json",
   "./icon-192.png",
   "./icon-512.png"
