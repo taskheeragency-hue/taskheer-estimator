@@ -1273,18 +1273,18 @@ function buildWhatsAppMessage(){
   const city = document.getElementById('custCity').value.trim();
   const ref = getAgreementRef();
 
-  let msg = `👋 *New Lead — Taskheer Agency*\n\n`;
-  msg += `Hi! I just used your online estimator and I'm interested in working with you. Here are my details 👇\n\n`;
-  msg += `🧾 *Reference:* ${ref}\n`;
-  msg += `👤 *Name:* ${name}\n`;
-  msg += `📞 *Phone:* ${phone}\n`;
-  msg += `📍 *City:* ${city || '-'}\n`;
+  let msg = `*New Lead — Taskheer Agency*\n\n`;
+  msg += `Hi! I just used your online estimator and I'm interested in working with you. Here are my details:\n\n`;
+  msg += `*Reference:* ${ref}\n`;
+  msg += `*Name:* ${name}\n`;
+  msg += `*Phone:* ${phone}\n`;
+  msg += `*City:* ${city || '-'}\n`;
 
   serviceSteps.forEach(step => {
     const chosen = Object.values(selections[step.id]);
     if(chosen.length){
-      msg += `\n✅ *${step.title}*\n`;
-      chosen.forEach(c => { msg += `   • ${c.name}${c.note ? ' (' + c.note + ')' : ''}\n`; });
+      msg += `\n*${step.title}*\n`;
+      chosen.forEach(c => { msg += `- ${c.name}${c.note ? ' (' + c.note + ')' : ''}\n`; });
     }
   });
 
@@ -1292,12 +1292,12 @@ function buildWhatsAppMessage(){
   if(t.oneTimeMax > 0 || t.monthlyMax > 0 || hasCustomItems){
     const min = t.oneTimeMin + (billingCycle==='yearly'? t.monthlyMin*12*(1-YEARLY_DISCOUNT) : t.monthlyMin);
     const max = t.oneTimeMax + (billingCycle==='yearly'? t.monthlyMax*12*(1-YEARLY_DISCOUNT) : t.monthlyMax);
-    msg += `\n💰 *Estimated Budget (${billingCycle}):* ${fmtPKR(min)} – ${fmtPKR(max)}\n`;
-    if(hasCustomItems) msg += `_(A couple of custom items need a quick quote too.)_\n`;
+    msg += `\n*Estimated Budget (${billingCycle}):* ${fmtPKR(min)} – ${fmtPKR(max)}\n`;
+    if(hasCustomItems) msg += `(A couple of custom items need a quick quote too.)\n`;
   }
 
-  msg += `\n📎 My Service Agreement (ref ${ref}) is downloaded and ready — attaching it here.\n`;
-  msg += `\nLooking forward to hearing from you soon! 🚀`;
+  msg += `\nMy Service Agreement (ref ${ref}) is downloaded and ready — attaching it here.\n`;
+  msg += `\nLooking forward to hearing from you soon.`;
   return msg;
 }
 
